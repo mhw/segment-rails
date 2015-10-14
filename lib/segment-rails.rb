@@ -10,6 +10,12 @@ module SegmentRails
   def user_identifier
     nil
   end
+  
+  def track_alias_event(uuid)
+    analytics_alias = cookies[:analytics_alias] ? JSON.parse(cookies[:analytics_alias]) : {}
+    analytics_alias[:uuid] = uuid if uuid
+    cookies[:analytics_alias] = JSON.dump(analytics_alias)
+  end
 
   def track_event(event_name, properties={})
     analytics = cookies[:analytics] ? JSON.parse(cookies[:analytics]) : {}
