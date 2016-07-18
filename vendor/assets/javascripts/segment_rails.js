@@ -1,3 +1,4 @@
+if (window.analytics != null) {
 (function() {
   var monster = (function() {
     /*!
@@ -108,3 +109,4 @@
     trackEvents();
   });
 })();
+}
